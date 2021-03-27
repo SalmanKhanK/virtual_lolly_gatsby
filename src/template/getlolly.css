@@ -1,0 +1,58 @@
+.container{
+    max-width: 600px;
+display: flex;
+justify-content: space-around;
+margin: 0 auto;
+margin-top: 70px;
+
+}
+.user_responce{
+      color:pink;
+      height: 80px;
+      width: 600px;
+      background-color: black;
+      text-align: center;
+}
+.form_responce{
+    background-color: black;
+    color: white;
+    font-size: larger;
+    font-weight: inherit;
+    font-family: sans-serif;
+
+}
+.form_responce > h2{
+    text-align: left;
+}
+.form_responce> h4{
+    margin-right: 50px;
+}
+.form_responce >h3{
+    margin-right: 130px;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    .user_responce{
+           width: 100%;
+    }
+  }
+
+  .heading{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 50px;
+    margin: 0px;
+}
+.reasonText{
+    margin:0px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 30px;
+}

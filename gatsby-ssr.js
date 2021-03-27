@@ -1,0 +1,1 @@
+export {wrapRootElement} from './src/appolo/wrap-root-elem';

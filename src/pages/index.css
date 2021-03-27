@@ -1,0 +1,49 @@
+body{
+    
+     margin: 0px;
+}
+.container{
+    max-width: 600px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+.container > .form-container{
+     display: flex;
+     flex-direction: column;
+     width: 250px;
+}
+.form-container > *{
+     margin: 7px;
+     padding: 10px 8px;
+
+}
+.form-container > textarea{
+  height: 200px;
+}
+.heading{
+     color: white;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     text-align: center;
+     font-size: 50px;
+     margin: 0px;
+}
+.reasonText{
+     margin:0px;
+     color: white;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     text-align: center;
+     font-size: 30px;
+}
+input[type=color] {
+     -webkit-appearance: none;
+     padding: 0px;
+     margin: 5px;
+
+ border: none;
+ overflow: hidden;
+ width: 40px;
+ height: 40px;
+cursor: pointer;
+   }

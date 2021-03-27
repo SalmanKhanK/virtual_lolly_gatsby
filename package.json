@@ -16,8 +16,11 @@
   },
   "license": "0BSD",
   "dependencies": {
+    "@apollo/client": "^3.3.13",
     "gatsby": "^3.1.1",
+    "gatsby-source-graphql": "^3.1.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "shortid": "^2.2.16"
   }
 }
