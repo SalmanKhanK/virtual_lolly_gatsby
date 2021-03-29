@@ -86,14 +86,15 @@ const resolvers = {
             }
           )
       )
+  
       axios
       .post("https://api.netlify.com/build_hooks/6061a024c78bfb4d1ca57696")
       .then(function (response) {
-        console.log(response,"show me what is a respone ghere plx")
+        console.log(response);
       })
       .catch(function (error) {
-        console.error(error,"show me where is error")
-      })
+        console.error(error);
+      });
 
       console.log("=========================")
       console.log(result.data)
