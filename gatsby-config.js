@@ -8,7 +8,7 @@ module.exports = {
               // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
               fieldName: "Lolly",
               // Url to query from
-              url: "http://localhost:8888/.netlify/functions/lollyapi",
+              url: "https://vlolly12e.netlify.app/.netlify/functions/lollyapi",
         },
     },
 ]
