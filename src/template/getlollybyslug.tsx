@@ -17,6 +17,7 @@ export const query=graphql`
         }
     }
 `
+const isBrowser = () => typeof window !== "undefined";
 export default ({data: {Lolly: {getVlollyByslug},},}) => {
     
     console.log(getVlollyByslug,"getVlolly...")
@@ -30,7 +31,9 @@ export default ({data: {Lolly: {getVlollyByslug},},}) => {
          </div>
          <div className="user_responce">
          <p style={{textAlign:"center"}}>Your lolly is freezing. Share it with this link:</p> 
-         <p>{window.location.href}</p>
+         <p>{`${isBrowser() ? location.origin : ""}/vlolly/${
+                getVlollyByslug.slug
+              }`}</p>
          <div className="form_responce">
               <h2 style={{color:'white'}}>{getVlollyByslug.To}</h2>
               <h3 style={{color:'white'}}>{getVlollyByslug.Msg}</h3>
