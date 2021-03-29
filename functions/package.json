@@ -1,8 +1,8 @@
 {
-  "name": "functions",
+  "name": "lollyapi.js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lollyapi.js",
   "dependencies": {
     "apollo-server-lambda": "^2.22.1",
     "faunadb": "^4.1.3",
