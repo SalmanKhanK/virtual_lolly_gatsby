@@ -46,3 +46,5 @@
     - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
     - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8d0e85e5-7d23-4aa4-a0cd-4b3ad2b6c98e/deploy-status)](https://app.netlify.com/sites/vlolly12e/deploys)

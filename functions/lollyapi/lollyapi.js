@@ -87,7 +87,7 @@ const resolvers = {
           )
       )
       axios
-      .post("https://api.netlify.com/build_hooks/605f5fc52a3799f3436d11be")
+      .post("https://api.netlify.com/build_hooks/6061a024c78bfb4d1ca57696")
       .then(function (response) {
         console.log(response,"show me what is a respone ghere plx")
       })
