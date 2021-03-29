@@ -1,4 +1,5 @@
 const { ApolloServer, gql } = require('apollo-server-lambda')
+const axios = require("axios")
 const faunadb = require('faunadb'),
   q = faunadb.query;
 const shortid = require('shortid');
@@ -85,6 +86,15 @@ const resolvers = {
             }
           )
       )
+      axios
+      .post("https://api.netlify.com/build_hooks/605f5fc52a3799f3436d11be")
+      .then(function (response) {
+        console.log(response,"show me what is a respone ghere plx")
+      })
+      .catch(function (error) {
+        console.error(error,"show me where is error")
+      })
+
       console.log("=========================")
       console.log(result.data)
       console.log("====================================")
