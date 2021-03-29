@@ -1,16 +1,17 @@
 {
-  "name": "lollyapi",
+  "name": "functions",
   "version": "1.0.0",
   "description": "",
-  "main": "lollyapi.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "main": "index.js",
   "dependencies": {
     "apollo-server-lambda": "^2.22.1",
     "faunadb": "^4.1.3",
     "graphql": "^14.7.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
