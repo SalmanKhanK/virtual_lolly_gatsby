@@ -19,12 +19,10 @@ export const query=graphql`
 `
 const isBrowser = () => typeof window !== "undefined";
 export default ({data: {Lolly: {getVlollyByslug},},}) => {
-    
-    console.log(getVlollyByslug,"getVlolly...")
     return (
         <div>
         <h3 className="heading">virtual lollipop</h3>
-        <h5 className="reasonText">because we all know someone who deserves some sugar.</h5>
+        <h5 className="reasonText">because we all know someone <br/> who deserves some sugar.</h5>
         <div className="container">
         <div>
          <Lolly top={getVlollyByslug.topColor} mid={getVlollyByslug.MidColor} Bottom={getVlollyByslug.BottomColor}></Lolly>
@@ -37,8 +35,11 @@ export default ({data: {Lolly: {getVlollyByslug},},}) => {
          <div className="form_responce">
               <h2 style={{color:'white'}}>{getVlollyByslug.To}</h2>
               <h3 style={{color:'white'}}>{getVlollyByslug.Msg}</h3>
-              <h4 style={{color:'white'}}>{getVlollyByslug.From}</h4>
+              <h4 style={{color:'white'}}>___{getVlollyByslug.From}</h4>
          </div>
+        <div className="form_responce">
+         <p>{getVlollyByslug.From} made this virtual lollipop for you. You can make your own to send to a friend who deserve some sugary treat which won't rot their teeth...</p>
+        </div>
       </div>
     </div>
     </div>

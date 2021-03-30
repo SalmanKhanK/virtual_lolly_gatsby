@@ -1,14 +1,14 @@
 .container{
-    max-width: 600px;
+    max-width: 700px;
 display: flex;
-justify-content: space-around;
-margin: 0 auto;
+justify-content: space-between;
+
 margin-top: 70px;
 
 }
 .user_responce{
       color:pink;
-      height: 80px;
+      height: 100px;
       width: 600px;
       background-color: black;
       text-align: center;
@@ -21,14 +21,14 @@ margin-top: 70px;
     font-family: sans-serif;
 
 }
-.form_responce > h2{
+.form_responce > h3{
     text-align: left;
 }
-.form_responce> h4{
-    margin-right: 50px;
+.form_responce> h5{
+    margin-right: 40px;
 }
-.form_responce >h3{
-    margin-right: 130px;
+.form_responce >h4{
+    margin-right: 190px;
 }
 
 @media screen and (max-width: 480px) {

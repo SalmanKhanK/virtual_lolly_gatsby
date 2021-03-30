@@ -1,6 +1,6 @@
 body{
-    
      margin: 0px;
+     background-color: #1a202c;
 }
 .container{
     max-width: 600px;
@@ -22,13 +22,7 @@ body{
 .form-container > textarea{
   height: 200px;
 }
-.heading{
-     color: white;
-     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-     text-align: center;
-     font-size: 50px;
-     margin: 0px;
-}
+
 .reasonText{
      margin:0px;
      color: white;
@@ -37,13 +31,27 @@ body{
      font-size: 30px;
 }
 input[type=color] {
-     -webkit-appearance: none;
-     padding: 0px;
-     margin: 5px;
-
- border: none;
- overflow: hidden;
- width: 40px;
- height: 40px;
-cursor: pointer;
+     width: 50px;
+     height: 40px;
+     padding: 2px;
+     background-color: transparent;
+     border: 0;
+     cursor: pointer;
    }
+
+
+.title{
+     color: white;
+     text-align: center;
+     font-size: 30px;
+     font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.subtitle{
+     color: white;
+     margin: 0px;
+     text-align: center;
+     font-size: 20px;
+     font-family:Georgia, 'Times New Roman', Times, serif;
+     margin-bottom: 20px;
+}
+

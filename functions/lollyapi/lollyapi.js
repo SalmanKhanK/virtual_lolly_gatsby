@@ -1,8 +1,9 @@
 const { ApolloServer, gql } = require('apollo-server-lambda')
 const axios = require("axios")
+
 const faunadb = require('faunadb'),
   q = faunadb.query;
-const shortid = require('shortid');
+
 const typeDefs = gql`
 type Query {
   getVlolly: [Lolly!]
@@ -25,6 +26,7 @@ type Query {
       To:String!
       Msg:String!
       From:String!
+      slug:String!
     ): Lolly 
   }
 `
@@ -67,9 +69,9 @@ const resolvers = {
  },
 
   Mutation:{
-    addLolly:async (_,{topColor,MidColor,BottomColor,To,Msg,From})=>{
+    addLolly:async (_,{topColor,MidColor,BottomColor,To,Msg,From,slug})=>{
       console.log("==========================================")
-         console.log(topColor,MidColor,BottomColor,To,Msg,From)
+         console.log(topColor,MidColor,BottomColor,To,Msg,From,slug)
       const result=await adminClient.query(
           q.Create(
             q.Collection("Lolly"),
@@ -81,7 +83,7 @@ const resolvers = {
                 To,
                 Msg,
                 From,
-                slug:shortid.generate()
+                slug
               }
             }
           )

@@ -1,80 +1,81 @@
-import React,{useState,useRef} from "react"
-import {useQuery,useMutation} from '@apollo/client'
-import gql from 'graphql-tag'
-import {Lolly} from '../component/Lolly'
-import { navigate } from "gatsby"
+import React, { useState, useRef } from "react"
+import { useQuery, useMutation } from '@apollo/client'
+import { Lolly } from '../component/Lolly'
+import {Add_vLolly,Get_Vlolly} from '../query/Query'
+import short from 'shortid'
 import './index.css'
-const Add_vLolly=gql`
-    mutation addLolly($topColor:String!,$MidColor:String!,$BottomColor:String!,$To:String!,
-      $Msg:String!,
-      $From:String!){
-        addLolly( topColor:$topColor,MidColor:$MidColor,BottomColor:$BottomColor,To:$To,
-          Msg:$Msg,
-          From:$From){
-                slug
-        }
-      }
-     
-`;
-const Get_Vlolly=gql`
-        {
-          getVlolly{
-            slug
-          }
-        }
-          
-`
+import Newlolly  from "../component/Newlolly"
+const shortId=short.generate();
 const IndexPage = () => {
-  const [TopColor, setTopColor] = useState("blue")
-  const [MiddileColor, setMiddleColor] = useState("green")
-  const [BottomColor, setBottomColor] = useState("red")
-  const to=useRef();
-  const from=useRef();
-  const msg=useRef();
+ 
+  const [TopColor, setTopColor] = useState("#400080")
+  const [MiddileColor, setMiddleColor] = useState("#B8B52F")
+  const [BottomColor, setBottomColor] = useState("#DE651B")
+  const [createNewLolly, setcreateNewLolly] = useState(false);
+  const [slugresult,Setslugresult]=useState({});
+  const to = useRef();
+  const from = useRef();
+  const msg = useRef();
   const [addLolly] = useMutation(Add_vLolly);
-  const handleSubmit=async ()=>{
+  const handleSubmit = async (e) => {
+    e.preventDefault() 
    const result= await addLolly({
       variables: {
-          topColor:TopColor, 
-          MidColor:MiddileColor, 
-          BottomColor:BottomColor,
-          To:to.current.value,
-          Msg:msg.current.value,
-          From:from.current.value
+        topColor: TopColor,
+        MidColor: MiddileColor,
+        BottomColor: BottomColor,
+        To: to.current.value,
+        Msg: msg.current.value,
+        From: from.current.value,
+        slug:shortId
       },
-      refetchQueries: [{ query: Get_Vlolly }]
-  });
-  console.log(result,"Resultt")
-  await navigate(`/vlolly/${result.data?.addLolly?.slug}`);
+      // refetchQueries: [{ query: Get_Vlolly }],
+    });
+    
+      console.log(result, "Resultt")
+    Setslugresult(result)
+    setcreateNewLolly(true)
   }
-  const {loading,error,data}=useQuery(Get_Vlolly);
-  if(loading){
-    return <h1>loading...</h1>
+  console.log(createNewLolly, 'new lolly')
+  const { loading, error, data } = useQuery(Get_Vlolly);
+  if (loading) {
+    return <h1 style={{color:"white"}}>loading...</h1>
   }
-  if(error){
+  if (error) {
     return <h1>Error :{error.message}</h1>
   }
   console.log(data)
+  console.log(slugresult,"slugresulttt")
   return (
+
     <div>
-    <h3 className="heading">virtual lollipop</h3>
-    <h5 className="reasonText">because we all know someone who deserves some sugar.</h5>
-  <div className="container">
-    <div>
-     <Lolly top={TopColor} mid={MiddileColor} Bottom={BottomColor}></Lolly>
-     <input  type="color" value={TopColor} name="TopColor" onChange={(ev)=>{setTopColor(ev.target.value)}} />  
-     <input className="color2" type="color" value={MiddileColor} name="MiddleColor" onChange={(ev)=>{setMiddleColor(ev.target.value)}} />  
-     <input className="color3" type="color" value={BottomColor} name="BottomColor" onChange={(ev)=>{setBottomColor(ev.target.value)}} />  
-     </div>
-     <div className="form-container">
-         <input type="text" name="to" ref={to} placeholder="To" />  
-         <textarea  name="msg" ref={msg} placeholder="message"  />  
-         <input type="text"  name="from" ref={from}  placeholder="From" />  
-         <button onClick={handleSubmit}
-         style={{cursor:"pointer"}} >Freeze</button>
+      {!createNewLolly ?
+        <div>
+          <h3 className="title">virtual lollipop</h3>
+          <h5 className="subtitle">because we all know someone <br/> who deserves some sugar.</h5>
+          <div className="container">
+            <div>
+              <Lolly top={TopColor} mid={MiddileColor} Bottom={BottomColor}></Lolly>
+                <input className="colorPicker" onChange={(ev) => setTopColor(ev.target.value) } type="color" value={TopColor} 
+                name="topflavor" id="topflavor"  />
+              <input className="colorPicker" type="color" value={MiddileColor} name="MiddleColor" onChange={(ev) =>setMiddleColor(ev.target.value) } />
+              <input className="colorPicker" type="color" value={BottomColor} name="BottomColor" onChange={(ev) => setBottomColor(ev.target.value)} />
+            </div>
+            <form className="form-container" onSubmit={handleSubmit}>
+        
+              <input type="text" name="to" ref={to} placeholder="To"  required/>
+              <textarea name="msg" ref={msg} placeholder="message"  required/>
+              <input type="text" name="from" ref={from} placeholder="From"  required/>
+              <button type="submit">Freeze</button>
+        
+            </form>
+          </div>
+
+        </div>
+        : <Newlolly slug={slugresult} />
+      }
+
     </div>
-  </div>
-  </div>
   )
 }
 export default IndexPage
