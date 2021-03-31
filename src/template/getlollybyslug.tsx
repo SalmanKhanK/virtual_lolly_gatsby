@@ -33,12 +33,12 @@ export default ({data: {Lolly: {getVlollyByslug},},}) => {
                 getVlollyByslug.slug
               }`}</p>
          <div className="form_responce">
-              <h2 style={{color:'white'}}>{getVlollyByslug.To}</h2>
-              <h3 style={{color:'white'}}>{getVlollyByslug.Msg}</h3>
-              <h4 style={{color:'white'}}>___{getVlollyByslug.From}</h4>
+              <h3 style={{color:'white'}}>To:{getVlollyByslug.To}</h3>
+              <h4 style={{color:'white'}}>{getVlollyByslug.Msg}</h4>
+              <h5 style={{color:'white'}}>From:__{getVlollyByslug.From}</h5>
          </div>
-        <div className="form_responce">
-         <p>{getVlollyByslug.From} made this virtual lollipop for you. You can make your own to send to a friend who deserve some sugary treat which won't rot their teeth...</p>
+         <div style={{marginTop:"60px"}}>
+                <p style={{fontSize:"20px"}}>{getVlollyByslug.From} made this virtual lollipop for you. You can make your own to send to a friend who <br/> deserve some sugary treat which won't rot their teeth...</p>
         </div>
       </div>
     </div>

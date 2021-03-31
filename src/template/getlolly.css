@@ -25,10 +25,10 @@ margin-top: 70px;
     text-align: left;
 }
 .form_responce> h5{
-    margin-right: 40px;
+    text-align: right;
 }
 .form_responce >h4{
-    margin-right: 190px;
+    text-align: left;
 }
 
 @media screen and (max-width: 480px) {

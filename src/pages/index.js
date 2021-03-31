@@ -39,10 +39,10 @@ const IndexPage = () => {
   console.log(createNewLolly, 'new lolly')
   const { loading, error, data } = useQuery(Get_Vlolly);
   if (loading) {
-    return <h1 style={{color:"white"}}>loading...</h1>
+    return <h3 style={{color:"white"}}>loading...</h3>
   }
   if (error) {
-    return <h1>Error :{error.message}</h1>
+    return <h3>Error :{error.message}</h3>
   }
   console.log(data)
   console.log(slugresult,"slugresulttt")
@@ -66,7 +66,7 @@ const IndexPage = () => {
               <input type="text" name="to" ref={to} placeholder="To"  required/>
               <textarea name="msg" ref={msg} placeholder="message"  required/>
               <input type="text" name="from" ref={from} placeholder="From"  required/>
-              <button type="submit">Freeze</button>
+              <button type="submit" style={{cursor:"pointer"}}>Freeze</button>
         
             </form>
           </div>
